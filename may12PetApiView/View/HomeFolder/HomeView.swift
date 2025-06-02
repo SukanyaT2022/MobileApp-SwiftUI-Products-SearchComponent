@@ -35,7 +35,7 @@ struct HomeView: View {
     
     //filter function
     @State var searchText: String = ""
-    var filteredItems: [PetModel] {
+    func filteredItemsFunc() -> [PetModel] {
         print(searchText)
         
         if searchText.isEmpty {
@@ -113,7 +113,7 @@ struct HomeView: View {
             
             
             //square component
-            SquareCompMapView(petArrayOfPetModel: filteredItems)
+            SquareCompMapView(petArrayOfPetModel: filteredItemsFunc())
             
         }//close main vstack
         .padding(15)
