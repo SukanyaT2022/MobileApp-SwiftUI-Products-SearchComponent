@@ -47,41 +47,13 @@ struct HomeView: View {
             }
         }
         
-        
-        
-        
-        
-        //if nothting on search box then showll pets
-//        switch catergory {
-//        case .dog:
-//            
-//            
-//        case .cat:
-//            if searchText.isEmpty {
-//                return petsVarOnlyHomeView
-//            } else {
-//                return pets.filter {
-//                    $0.type.lowercased()==("cat".lowercased())
-//                    || $0.breed.lowercased().contains(searchText.lowercased())
-//                }
-//            }
-//            
-//            
-//        case .bird:
-//            break
-//        case .fish:
-//            break
-//        case .others:
-//            break
-//        }
-//        return []
     }
     
    
     
     var body: some View {
        NavigationView {
-            
+         //inable to use navigationlink or onclick -- we need navigationView
        
         VStack {
             

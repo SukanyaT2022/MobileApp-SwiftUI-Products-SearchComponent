@@ -106,6 +106,7 @@ struct SquareCompMapView: View {
                 
                 ForEach(petArrayOfPetModel) {pet in
                     //click to next screen sent to detail ascrren view
+                    //we put navigation so every square can click and  go to the detail screen-like onpress
                     NavigationLink(destination: DetailScreenView(petDetail: pet)) {
                         
                         ZStack(alignment: .bottom) {

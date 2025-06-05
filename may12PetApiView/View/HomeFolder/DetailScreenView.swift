@@ -27,8 +27,8 @@ struct DetailScreenView: View {
            PetDetail(title: "Age", value: "\(petDetail.age)"),
             // because value is int--change value vlaue from int to string
             
-//           PetDetail(title: "Gender", value: petDetail.age),
-//           PetDetail(title: "Color", value: petDetail.petName),
+            PetDetail(title: "Activities", value: petDetail.activities.first ?? ""),
+            PetDetail(title: "Distance", value: petDetail.distance ?? ""),
             ]
         self.allPetDataArray = allPetDataArray
     }
@@ -38,6 +38,7 @@ struct DetailScreenView: View {
                 BigSquareCompView()
                 ForEach(allPetDataArray) {pet in
                     DeatilTitleCompView(title: pet.title, value: pet.value)
+                       
                 }
             }
             

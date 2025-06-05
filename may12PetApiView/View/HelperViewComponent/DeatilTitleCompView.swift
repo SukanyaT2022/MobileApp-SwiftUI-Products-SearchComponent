@@ -11,24 +11,26 @@ struct DeatilTitleCompView: View {
     let title: String
     let value: String
     var body: some View {
-        HStack(spacing:20){
+        HStack(alignment: .center, spacing: 20) {
+            // Title takes 30% width
+            Text(title)
+                .fontWeight(.bold)
+                .font(.system(size: 20))
+                .multilineTextAlignment(.leading)
+                .frame(width: (UIScreen.main.bounds.width - 20) * 0.3, alignment: .leading)
+                .background(Color.red)
             
-            HStack(alignment: .firstTextBaseline, spacing:30){
-                Text(title)
-                    .fontWeight(.bold)
-                    .font(.system(size: 20))
-                Text(value)
-                    .font(.system(size: 20))
-            }//close hstack
-            .background(Color.green)
-            Spacer()
-        }// close parent h stack
-        .background(Color.red)
-        .padding(.horizontal,20)
-       
-        
+            // Value takes 70% width
+            Text(value)
+                .font(.system(size: 20))
+                .multilineTextAlignment(.leading)
+                .frame(width: (UIScreen.main.bounds.width - 20) * 0.6, alignment: .leading)
+                .background(Color.green)
+        }
+        .padding(.horizontal, 20)
     }
 }
+
 #Preview {
-    DeatilTitleCompView(title: "name", value: "addvalue")
+    DeatilTitleCompView(title: "name", value: "detail")
 }

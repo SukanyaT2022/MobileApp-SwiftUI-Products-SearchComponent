@@ -8,11 +8,13 @@
 import SwiftUI
 
 struct BigSquareCompView: View {
+    var storeImageVar : String?
     var body: some View {
+        
         VStack {
-            Text("Pet Details!")
+       
             
-                .font(.system(size: 24, weight: .semibold, design: .default))
+        Image()
             Rectangle()
                 .frame(width: 300, height: 300)
                 .foregroundColor(.red)
