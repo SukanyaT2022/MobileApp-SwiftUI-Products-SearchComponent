@@ -14,31 +14,41 @@ let title: String
 let value: String
 }
 struct DetailScreenView: View {
+    let petDetail : PetModel
     
 // array of pet detail obj
-    let allPetDataArray: [PetDetail] = [
-       PetDetail(title: "Name", value: "Fluffykins"),
-       PetDetail(title: "Species", value: "Dog"),
-       PetDetail(title: "Breed", value: "Labrador"),
-       PetDetail(title: "Age", value: "2 years"),
-       PetDetail(title: "Gender", value: "Female"),
-       PetDetail(title: "Color", value: "Yellow"),
-        ]
+  @State var allPetDataArray: [PetDetail] = []
        
-    
+    func helperFunction(){
+        let allPetDataArray: [PetDetail] = [
+            PetDetail(title: "Name", value: petDetail.petName),
+            PetDetail(title: "Species",value: petDetail.type ),
+           PetDetail(title: "Breed", value: petDetail.breed),
+           PetDetail(title: "Age", value: "\(petDetail.age)"),
+            // because value is int--change value vlaue from int to string
+            
+//           PetDetail(title: "Gender", value: petDetail.age),
+//           PetDetail(title: "Color", value: petDetail.petName),
+            ]
+        self.allPetDataArray = allPetDataArray
+    }
     var body: some View {
         VStack{
-            BigSquareCompView()
-            ForEach(allPetDataArray) {pet in
-                DeatilTitleCompView(title: pet.title, value: pet.value)
+            ScrollView{
+                BigSquareCompView()
+                ForEach(allPetDataArray) {pet in
+                    DeatilTitleCompView(title: pet.title, value: pet.value)
+                }
             }
             
         }
-      
+        .onAppear(){
+            self.helperFunction()
+        }
         
     }
 }
 
 #Preview {
-    DetailScreenView()
+    DetailScreenView(petDetail: PetModel(petName: "", type: "", address: Address(street: "", city: "", state: "", zip: ""), yearOfBirth: 0, age: 0, breed: "", activities: [""], image: "", distance: ""))
 }

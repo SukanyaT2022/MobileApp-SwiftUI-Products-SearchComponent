@@ -80,7 +80,11 @@ struct HomeView: View {
    
     
     var body: some View {
+       NavigationView {
+            
+       
         VStack {
+            
             VStack(alignment: .leading) {
                 Text("Let's find")
                     .font(.system(size: 18, weight: .semibold))
@@ -118,6 +122,7 @@ struct HomeView: View {
         }//close main vstack
         .padding(15)
         
+
         .onAppear{
             //pets come from state line 13 variable - array of [PetModel]
             petsVarOnlyHomeView =  self.loadPetBreedsFromJSON()
@@ -125,7 +130,7 @@ struct HomeView: View {
         }
     }
 }
-
+}
 #Preview {
     HomeView(petsVarOnlyHomeView: [])
 }
